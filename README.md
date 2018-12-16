@@ -8,6 +8,10 @@ Some backstory: https://www.wizewarez.eu/2018/10/wildcard-certs-with-lets-encryp
 
 ZoneID API reference: https://api.zone.eu/v2
 
+## Requirements
+
+jq (for parsing JSON responses from ZoneID API): https://stedolan.github.io/jq/
+
 ## Setup
 
 Upload these 3 files to your server.
