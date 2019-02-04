@@ -27,5 +27,3 @@ if [ $vars_missing -eq 1 ]; then
 fi
 
 echo "Env vars OK."
-
-exit 0
