@@ -21,7 +21,7 @@ if [ -z "$ZONE_API_KEY" ]; then
     vars_missing = 1
 fi
 
-if [ vars_missing -eq 1 ]; then
+if [ $vars_missing -eq 1 ]; then
 	echo "Not all required env vars are set, exiting."
 	exit 1
 fi
