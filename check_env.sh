@@ -1,5 +1,11 @@
 #!/bin/bash
 
+# One can set credentials and parameters also here
+#ZONE_API_USER=virt000
+#ZONE_API_KEY=000000000000000000000000000000000000000000000
+#ZONE_RETURN_DELAY=300
+
+
 echo "Checking env vars."
 
 vars_missing=0
