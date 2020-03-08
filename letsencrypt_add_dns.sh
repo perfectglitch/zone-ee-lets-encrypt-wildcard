@@ -13,6 +13,7 @@ function add_dns_entry(){
 	 POST https://api.zone.eu/v2/dns/$DOMAIN/txt -d @- <<EOF
 	{"destination":"$CERTBOT_VALIDATION", "name":"_acme-challenge.$DOMAIN"}
 EOF
+	echo ""
 }
 
 function wait_for_dns_propagation(){
@@ -39,6 +40,11 @@ echo "Adding Lets Encrypt DNS challenge entries."
 source $(dirname $0)/check_env.sh
 add_dns_entry
 wait_for_dns_propagation
+# Optional sleep, sometimes DNS gets propagated to Google sooner than to Lets Encrypt
+if [ -n "$ZONE_RETURN_DELAY" ] && [[ "$ZONE_RETURN_DELAY" =~ ^[0-9]+$ ]]; then
+	echo "Waiting for $ZONE_RETURN_DELAY extra seconds for the record to propagate..."
+	sleep $ZONE_RETURN_DELAY
+fi
 
 echo "Done adding Lets Encrypt DNS challenge entries."
 
